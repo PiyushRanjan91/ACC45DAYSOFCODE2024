@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+    
+    while (T--) {
+        int d_dsa, d_toc, d_dm;
+        int s_dsa, s_toc, s_dm;
+        
+        cin >> d_dsa >> d_toc >> d_dm;
+        cin >> s_dsa >> s_toc >> s_dm;
+        
+        int dragon_total = d_dsa + d_toc + d_dm;
+        int sloth_total = s_dsa + s_toc + s_dm;
+        
+        if (dragon_total > sloth_total) {
+            cout << "DRAGON" << endl;
+        } else if (sloth_total > dragon_total) {
+            cout << "SLOTH" << endl;
+        } else {
+            if (d_dsa > s_dsa) {
+                cout << "DRAGON" << endl;
+            } else if (s_dsa > d_dsa) {
+                cout << "SLOTH" << endl;
+            } else {
+                if (d_toc > s_toc) {
+                    cout << "DRAGON" << endl;
+                } else if (s_toc > d_toc) {
+                    cout << "SLOTH" << endl;
+                } else {
+                    cout << "TIE" << endl;
+                }
+            }
+        }
+    }
+    
+    return 0;
+}
