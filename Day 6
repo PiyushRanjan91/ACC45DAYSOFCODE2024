@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+vector<int> max_score(int T, vector<pair<int, int>> &cases) {
+    vector<int> results;
+    for (int i = 0; i < T; i++) {
+        int X = cases[i].first;
+        int Y = cases[i].second;
+        int score_A_first = (500 - 2 * X) + (1000 - 4 * (X + Y));
+        int score_B_first = (1000 - 4 * Y) + (500 - 2 * (X + Y));
+        results.push_back(max(score_A_first, score_B_first));
+    }
+    return results;
+}
+
+int main() {
+    int T;
+    cin >> T;
+    vector<pair<int, int>> cases(T);
+    for (int i = 0; i < T; i++) {
+        cin >> cases[i].first >> cases[i].second;
+    }
+    vector<int> results = max_score(T, cases);
+    for (int result : results) {
+        cout << result << endl;
+    }
+    return 0;
+}
