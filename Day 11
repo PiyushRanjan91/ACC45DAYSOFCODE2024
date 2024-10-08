@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+    vector<int> results;
+    
+    for (int i = 0; i < T; ++i) {
+        int X, Y;
+        cin >> X >> Y;
+        int time = abs(X - Y);
+        results.push_back(time);
+    }
+
+    for (int result : results) {
+        cout << result << endl;
+    }
+    
+    return 0;
+}
