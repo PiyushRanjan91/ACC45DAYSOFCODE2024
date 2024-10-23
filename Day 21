@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+    while (T--) {
+        int H, X, Y;
+        cin >> H >> X >> Y;
+
+        int normal_attacks_only = ceil((double)H / X);
+        int use_special_attack_then_normal;
+
+        if (H <= Y) {
+            use_special_attack_then_normal = 1;
+        } else {
+            use_special_attack_then_normal = 1 + ceil((double)(H - Y) / X);
+        }
+
+        cout << min(normal_attacks_only, use_special_attack_then_normal) << endl;
+    }
+
+    return 0;
+}
