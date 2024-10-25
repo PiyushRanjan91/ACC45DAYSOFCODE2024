@@ -1,0 +1,20 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+    while (T--) {
+        int N, start38 = 0, ltime108 = 0;
+        cin >> N;
+        vector<string> contests(N);
+        for (int i = 0; i < N; i++) {
+            cin >> contests[i];
+            if (contests[i] == "START38") start38++;
+            else if (contests[i] == "LTIME108") ltime108++;
+        }
+        cout << start38 << " " << ltime108 << endl;
+    }
+    return 0;
+}
