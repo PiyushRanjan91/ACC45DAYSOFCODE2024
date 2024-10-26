@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int T, N;
+    cin >> T;
+    while (T--) {
+        cin >> N;
+        if (N < 2) cout << 0 << endl;
+        else cout << (N - 2) / 7 + 1 << endl;
+    }
+    return 0;
+}
