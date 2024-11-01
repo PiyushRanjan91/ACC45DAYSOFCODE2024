@@ -1,0 +1,22 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+    vector<string> results;
+    
+    while (T--) {
+        int A, B, C, D;
+        cin >> A >> B >> C >> D;
+        int diff1 = C - A;
+        int diff2 = D - B;
+        results.push_back((diff1 >= 0 && diff2 >= 0) ? "POSSIBLE" : "IMPOSSIBLE");
+    }
+    
+    for (const string &result : results) {
+        cout << result << endl;
+    }
+    return 0;
+}
