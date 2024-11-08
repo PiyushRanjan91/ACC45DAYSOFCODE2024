@@ -1,0 +1,36 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+vector<int> minimumFlipsToZero(int T, vector<pair<int, vector<int>>> &test_cases) {
+    vector<int> results;
+    for (auto &case_info : test_cases) {
+        int N = case_info.first;
+        vector<int> &A = case_info.second;
+        int current_sum = 0;
+        for (int num : A) current_sum += num;
+        if (current_sum % 2 != 0) {
+            results.push_back(-1);
+        } else {
+            results.push_back(abs(current_sum) / 2);
+        }
+    }
+    return results;
+}
+
+int main() {
+    int T;
+    cin >> T;
+    vector<pair<int, vector<int>>> test_cases(T);
+    for (int i = 0; i < T; ++i) {
+        int N;
+        cin >> N;
+        vector<int> A(N);
+        for (int j = 0; j < N; ++j) cin >> A[j];
+        test_cases[i] = {N, A};
+    }
+    vector<int> results = minimumFlipsToZero(T, test_cases);
+    for (int result : results) cout << result << endl;
+    return 0;
+}
