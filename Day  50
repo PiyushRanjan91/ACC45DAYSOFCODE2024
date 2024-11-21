@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+string encodeDNA(const string &binaryString) {
+    string result = "";
+    for (size_t i = 0; i < binaryString.length(); i += 2) {
+        if (binaryString.substr(i, 2) == "00") result += 'A';
+        else if (binaryString.substr(i, 2) == "01") result += 'T';
+        else if (binaryString.substr(i, 2) == "10") result += 'C';
+        else if (binaryString.substr(i, 2) == "11") result += 'G';
+    }
+    return result;
+}
+
+int main() {
+    int T;
+    cin >> T;
+    vector<string> results;
+    while (T--) {
+        int N;
+        string S;
+        cin >> N >> S;
+        results.push_back(encodeDNA(S));
+    }
+    for (const string &result : results) {
+        cout << result << endl;
+    }
+    return 0;
+}
